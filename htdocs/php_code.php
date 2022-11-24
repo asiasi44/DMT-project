@@ -23,7 +23,7 @@
 		$roll = htmlentities($_POST['roll'],ENT_QUOTES);
         $stream = htmlentities($_POST['stream'],ENT_QUOTES);
 
-        if (is_int($roll)){
+        if (is_numeric($roll)){
             
         
 
@@ -43,7 +43,7 @@
             $roll = $_POST['roll'];
             $stream = $_POST['stream'];
             
-            if (is_int($roll)){
+            if (is_numeric($roll)){
 
             
     
