@@ -12,7 +12,7 @@ if (isset($_GET['edit'])) {
         $roll = $row['Roll'];
 
     }
-
+    $out = str_replace("<","&lt;",$in); 
 }
 ?>
 
@@ -53,9 +53,9 @@ error_reporting(E_ALL)
         
         <?php while ($row = mysqli_fetch_array($results)) { ?>
             <tr>
-                <td><?php echo $row['Name']; ?></td>
-                <td><?php echo $row['Roll']; ?></td>
-                <td><?php echo $row['Stream']; ?></td>
+                <td> <?php echo strip_tags($row['Name']); ?></td>
+                <td><?php echo strip_tags($row['Roll']); ?></td>
+                <td><?php echo strip_tags($row['Stream']); ?></td>
                 <td>
                     <a href="index.php?edit=<?php echo $row['Id']; ?>" class="edit_btn" >Edit</a>
                 </td>
@@ -67,7 +67,7 @@ error_reporting(E_ALL)
     </table>
     <form action="php_code.php" method ="post" >
 
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="id" value="<?php echo $id; ?> ">
 
 		<div class="input-group">
 			<label>Name:</label>
